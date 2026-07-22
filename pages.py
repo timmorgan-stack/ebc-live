@@ -629,8 +629,7 @@ def build_contact():
           <div class="full">
             <label class="checkbox-label">
               <input type="checkbox" name="newsletter" value="yes">
-              <span>Sign up for news and updates — be the first to hear about our upcoming
-              musical events (with special guests).</span>
+              <span>Sign up for news and updates</span>
             </label>
           </div>
           <div>
