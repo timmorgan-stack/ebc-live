@@ -13,7 +13,7 @@ def build_home():
     orchestra without compromise.</p>
     <div class="hero-actions">
       <a href="contact.html" class="btn btn-primary">Book Now</a>
-      <a href="equipment.html" class="btn btn-outline">Explore the Studio</a>
+      <a href="about-us.html" class="btn btn-outline">Explore the Studio</a>
     </div>
   </div>
 </section>
@@ -223,6 +223,10 @@ def build_about():
         state-of-the-art, 1,500 sq ft soundproof live room, featuring a dramatic 30-foot-high pine
         vaulted ceiling and a unique surrounding balcony — designed to cater to everything from large
         orchestral recordings to intimate solo sessions.</p>
+        <div class="hero-actions" style="margin-top:28px">
+          <a href="gallery.html" class="btn btn-outline btn-sm">View Gallery</a>
+          <a href="assets/img/floorplan-wadeson-street.jpg" class="btn btn-outline btn-sm lightbox-trigger">View Floor Plan</a>
+        </div>
       </div>
       <img src="{img('Empire_About_Us_2')}" alt="EBC live room vaulted ceiling">
     </div>
@@ -235,6 +239,7 @@ def build_about():
     <a href="contact.html" class="btn btn-primary">Book Now</a>
   </div>
 </section>
+{LIGHTBOX_HTML}
 """
     write("about-us.html", page(
         "about-us.html", "About Us",
