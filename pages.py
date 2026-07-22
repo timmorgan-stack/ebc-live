@@ -240,10 +240,15 @@ def build_about():
       </div>
       <img src="{img('33a_Wadeson_Street-11')}" alt="EBC live room, acoustically designed by Roger D'Arcy">
     </div>
+    <a href="#historic-church" class="scroll-cue" aria-label="Scroll to next section">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
   </div>
 </section>
 
-<section class="bg-alt">
+<section class="bg-alt" id="historic-church">
   <div class="container">
     <div class="split reverse">
       <div>
@@ -766,11 +771,7 @@ def build_contact():
               <label class="checkbox-label"><input type="checkbox" name="services" value="Podcast"><span>Podcast</span></label>
             </div>
           </div>
-          <div>
-            <label for="budget">What is your budget?</label>
-            <input id="budget" name="budget" type="text" required>
-          </div>
-          <div>
+          <div class="full">
             <label for="hear_about">How did you hear about us?</label>
             <select id="hear_about" name="hear_about" required>
               <option value="">Select an option</option>

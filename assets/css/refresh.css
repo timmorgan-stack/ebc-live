@@ -319,6 +319,27 @@ section.tight { padding: 70px 0; }
 .split.reverse { direction: rtl; }
 .split.reverse > * { direction: ltr; }
 
+.scroll-cue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  margin: 48px auto 0;
+  color: var(--fg-faint);
+  animation: scroll-cue-bounce 2.4s ease-in-out infinite;
+  transition: color 0.2s ease;
+}
+.scroll-cue:hover { color: var(--accent); }
+.scroll-cue svg { width: 22px; height: 22px; }
+@keyframes scroll-cue-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue { animation: none; }
+}
+
 .card {
   background: var(--bg-elevated);
   border: 1px solid var(--line);
