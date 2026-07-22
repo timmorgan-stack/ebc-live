@@ -1,7 +1,8 @@
-import glob, os, re
+import glob, json, os, re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 IMG_DIR = os.path.join(ROOT, "assets", "img")
+SITE_URL = "https://www.ebc.live"
 
 _cache = {}
 def img(basename):
@@ -88,16 +89,60 @@ FOOTER = f"""
 """
 
 
-def page(active, title, description, body, extra_class=""):
+def page(active, title, description, body, keywords="", og_image=None, extra_class=""):
+    canonical = f"{SITE_URL}/" if active == "index.html" else f"{SITE_URL}/{active}"
+    full_title = f"{title} — The Empire Studio"
+    og_img_url = f"{SITE_URL}/{og_image or img('GAL_7')}"
+
+    ld_json = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "The Empire Broadcasting Corporation",
+        "alternateName": "The Empire Studio",
+        "image": og_img_url,
+        "url": f"{SITE_URL}/",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "33 Wadeson Street",
+            "addressLocality": "London",
+            "postalCode": "E2 9DR",
+            "addressCountry": "GB",
+        },
+        "sameAs": ["http://instagram.com/theempirestudiolondon"],
+        "description": "Recording studio in East London with a professional live room, "
+                        "control room and equipment for music, film and podcasts.",
+    }, indent=2)
+
     return f"""<!doctype html>
-<html lang="en-US">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title} — The Empire Studio</title>
+<title>{full_title}</title>
 <meta name="description" content="{description}">
+<meta name="keywords" content="{keywords}">
+<meta name="robots" content="index, follow">
+<meta name="author" content="The Empire Broadcasting Corporation">
+<link rel="canonical" href="{canonical}">
 <link rel="icon" href="{img('Empire_Logo_1')}">
 <link rel="stylesheet" href="assets/css/refresh.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Empire Studio">
+<meta property="og:title" content="{full_title}">
+<meta property="og:description" content="{description}">
+<meta property="og:url" content="{canonical}">
+<meta property="og:image" content="{og_img_url}">
+<meta property="og:locale" content="en_GB">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{full_title}">
+<meta name="twitter:description" content="{description}">
+<meta name="twitter:image" content="{og_img_url}">
+
+<script type="application/ld+json">
+{ld_json}
+</script>
 </head>
 <body class="{extra_class}">
 {nav(active)}

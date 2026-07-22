@@ -150,7 +150,16 @@ def build_home():
   </div>
 </section>
 """
-    write("index.html", page("index.html", "The Empire Studio", "The Empire Studio is situated in the heart of East London. Enquire for recording sessions, events, video and photoshoots.", body))
+    write("index.html", page(
+        "index.html", "Recording Studio East London",
+        "Recording studio in East London with a 153 sqm live room, professional equipment and "
+        "control room built for orchestras, bands, podcasts and music-to-picture. Book The Empire "
+        "Studio today.",
+        body,
+        keywords="recording studio east london, live room london, control room, professional "
+                 "equipment, music studio east london, recording studio london",
+        og_image=img('GAL_7'),
+    ))
 
 
 # ============================================================ ABOUT
@@ -215,7 +224,16 @@ def build_about():
   </div>
 </section>
 """
-    write("about-us.html", page("about-us.html", "About Us", "Every inch of EBC has been acoustically treated by the renowned architect Roger D'Arcy, ensuring unparalleled sound quality.", body))
+    write("about-us.html", page(
+        "about-us.html", "About Us",
+        "The Empire Studio's live room in East London was acoustically designed by renowned "
+        "architect Roger D'Arcy inside a converted 1873 Methodist church, with a 30ft vaulted "
+        "pine ceiling.",
+        body,
+        keywords="live room london, recording studio east london, acoustic design, roger d'arcy, "
+                 "east london music studio",
+        og_image=img('Empire_About_Us_2'),
+    ))
 
 
 # ============================================================ EQUIPMENT
@@ -297,7 +315,15 @@ def build_equipment():
 </section>
 {LIGHTBOX_HTML}
 """
-    write("equipment.html", page("equipment.html", "Equipment", "Full equipment list for The Empire Studio — digital recording, console, pre-amps, microphones, monitoring and more.", body))
+    write("equipment.html", page(
+        "equipment.html", "Equipment & Control Room",
+        "Explore the professional equipment at our East London recording studio: Neve and API "
+        "preamps, a 40-channel console, Neumann microphones and a fully treated control room.",
+        body,
+        keywords="professional equipment, control room, recording studio equipment, neve preamps, "
+                 "recording studio east london, live room london",
+        og_image=img('Control_Room_003'),
+    ))
 
 
 # ============================================================ TESTIMONIALS
@@ -341,7 +367,15 @@ def build_testimonials():
   </div>
 </section>
 """
-    write("testimonials.html", page("testimonials.html", "Testimonials", "What composers, engineers and artists say about recording at The Empire Studio.", body))
+    write("testimonials.html", page(
+        "testimonials.html", "Testimonials",
+        "Hear from composers, engineers and artists who've recorded in our East London live room "
+        "and control room, from film scores to chart-topping albums.",
+        body,
+        keywords="recording studio east london, live room london, control room, testimonials, "
+                 "recording studio reviews",
+        og_image=img('Control_Room_009'),
+    ))
 
 
 # ============================================================ GALLERY
@@ -408,7 +442,15 @@ def build_gallery():
 </section>
 {LIGHTBOX_HTML}
 """
-    write("gallery.html", page("gallery.html", "Gallery", "Photos from inside The Empire Studio — East London's premier recording studio.", body))
+    write("gallery.html", page(
+        "gallery.html", "Gallery",
+        "See inside The Empire Studio's live room, control room and professional equipment — East "
+        "London's premier recording studio in a converted Victorian church.",
+        body,
+        keywords="recording studio east london, live room london, control room, studio gallery, "
+                 "professional equipment",
+        og_image=img('GAL_5'),
+    ))
 
 
 # ============================================================ NEWS
@@ -596,7 +638,14 @@ def build_news():
   </div>
 </section>
 """
-    write("news.html", page("news.html", "News", "News, stories and artist spotlights from The Empire Studio, East London.", body))
+    write("news.html", page(
+        "news.html", "Journal",
+        "News, stories and artist spotlights from The Empire Studio — East London's recording "
+        "studio with a professional live room and control room.",
+        body,
+        keywords="recording studio east london, live room london, music studio news, east london",
+        og_image=img('GAL_4'),
+    ))
 
 
 # ============================================================ CONTACT
@@ -714,7 +763,15 @@ def build_contact():
   </div>
 </section>
 """
-    write("contact.html", page("contact.html", "Contact", "Get in touch with The Empire Studio, East London's premier recording studio.", body))
+    write("contact.html", page(
+        "contact.html", "Contact & Book",
+        "Get in touch to book East London's premier recording studio — live room, control room "
+        "and professional equipment for orchestras, bands, podcasts and more.",
+        body,
+        keywords="recording studio east london, book recording studio, live room london, control "
+                 "room, contact recording studio",
+        og_image=img('vlcsnap-2024-08-12-02h10m44s927'),
+    ))
 
 
 # ============================================================ EVENTS
@@ -760,7 +817,57 @@ def build_events():
   </div>
 </section>
 """
-    write("events.html", page("events.html", "Events", "Upcoming events at The Empire Studio, East London.", body))
+    write("events.html", page(
+        "events.html", "Events",
+        "Upcoming events at The Empire Studio's East London live room, from candlelit concerts to "
+        "ticketed live sessions.",
+        body,
+        keywords="recording studio east london, live room london, events, live music east london",
+        og_image=img('33a_Wadeson_Street-11'),
+    ))
+
+
+SITEMAP_PAGES = [
+    ("", "1.0", "weekly"),
+    ("about-us.html", "0.8", "monthly"),
+    ("equipment.html", "0.8", "monthly"),
+    ("testimonials.html", "0.7", "monthly"),
+    ("gallery.html", "0.7", "monthly"),
+    ("news.html", "0.6", "weekly"),
+    ("contact.html", "0.9", "monthly"),
+    ("events.html", "0.6", "weekly"),
+]
+
+
+def build_sitemap():
+    from build import SITE_URL
+    import datetime
+    today = datetime.date.today().isoformat()
+    urls = "\n".join(
+        f"  <url>\n"
+        f"    <loc>{SITE_URL}/{path}</loc>\n"
+        f"    <lastmod>{today}</lastmod>\n"
+        f"    <changefreq>{freq}</changefreq>\n"
+        f"    <priority>{priority}</priority>\n"
+        f"  </url>"
+        for path, priority, freq in SITEMAP_PAGES
+    )
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{urls}
+</urlset>
+"""
+    write("sitemap.xml", xml)
+
+
+def build_robots():
+    from build import SITE_URL
+    txt = f"""User-agent: *
+Allow: /
+
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+    write("robots.txt", txt)
 
 
 if __name__ == "__main__":
@@ -772,3 +879,5 @@ if __name__ == "__main__":
     build_news()
     build_contact()
     build_events()
+    build_sitemap()
+    build_robots()
