@@ -248,6 +248,12 @@ section.tight.equip-list {
   margin-bottom: 20px;
 }
 .hero h1 { margin-bottom: 22px; max-width: 900px; }
+.hero .lede {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85), 0 6px 20px rgba(0, 0, 0, 0.55);
+}
+.hero:not(.hero-small) .hero-tagline, .hero:not(.hero-small) h1 {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
 
 /* ---------- Marquee ---------- */
