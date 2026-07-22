@@ -611,7 +611,7 @@ def build_contact():
 
 <section class="tight">
   <div class="container">
-    <div class="split">
+    <div class="split split-top">
       <form class="contact-form" action="mailto:info@ebc.live" method="post" enctype="text/plain">
         <div class="form-grid">
           <div>
