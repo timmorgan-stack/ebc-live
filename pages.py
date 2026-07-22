@@ -9,7 +9,7 @@ def build_home():
     <div class="hero-tagline">East London Recording Studio</div>
     <h1>The Sound<br>of Perfection</h1>
     <p class="lede" style="max-width:560px">World-class acoustics, state-of-the-art equipment and a
-    1,500 sq ft live room inside a converted East London church — built to seat a full 40-piece
+    1,500&nbsp;ft² live room inside a converted East London church — built to seat a full 40-piece
     orchestra without compromise.</p>
     <div class="hero-actions">
       <a href="contact.html" class="btn btn-primary">Book Now</a>
@@ -76,7 +76,7 @@ def build_home():
       <div class="eyebrow">Our Services</div>
       <h2>Exceptional Music Services,<br>Tailored to You</h2>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-4">
       <div class="card">
         <span class="card-icon">01 / Score</span>
         <h3>Music to Picture</h3>
@@ -112,6 +112,18 @@ def build_home():
         <h3>Bands &amp; Artists</h3>
         <p>Capture your band's unique sound at East London's ultimate recording destination —
         ask us what 86TVs recorded here.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">07 / Events</span>
+        <h3>Events &amp; Private Hire</h3>
+        <p>Host concerts, launches and screenings inside a converted church — evening hire with
+        full theatre seating, staging and in-house catering on request.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">08 / Location</span>
+        <h3>Film Location Hire</h3>
+        <p>A striking, full blackout-capable space for full-day filming and photoshoots — vaulted
+        ceilings, exposed brick and flexible lighting ready for any production.</p>
       </div>
     </div>
   </div>
@@ -206,7 +218,7 @@ def build_about():
         <h2>A Historic Church,<br>Reimagined</h2>
         <p class="lede">EBC Studio positions itself as a premier destination for high-quality music
         production, offering a unique combination of cutting-edge technology and artistic ambiance —
-        created by Marlon Brown, with acoustic design by Roger D'Arcy.</p>
+        created by Empire Broadcasting Corporation with acoustic design by Roger D'Arcy.</p>
         <p>Originally a historic Methodist church, the building has been transformed into a
         state-of-the-art, 1,500 sq ft soundproof live room, featuring a dramatic 30-foot-high pine
         vaulted ceiling and a unique surrounding balcony — designed to cater to everything from large
