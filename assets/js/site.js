@@ -47,14 +47,19 @@
 
     function show(index) {
       current = (index + items.length) % items.length;
-      var src = items[current].getAttribute('href') || items[current].querySelector('img').src;
-      var alt = items[current].querySelector('img').alt || '';
+      var trigger = items[current];
+      var innerImg = trigger.querySelector('img');
+      var src = trigger.getAttribute('href') || (innerImg && innerImg.src) || '';
+      var alt = (innerImg && innerImg.alt) || trigger.getAttribute('data-alt') || trigger.textContent.trim();
       lbImg.src = src;
       lbImg.alt = alt;
     }
 
     function open(index) {
       show(index);
+      var multi = items.length > 1;
+      btnPrev.style.display = multi ? '' : 'none';
+      btnNext.style.display = multi ? '' : 'none';
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
     }

@@ -290,11 +290,12 @@ def build_equipment():
 <section class="cta-band">
   <div class="container">
     <h2>See The Full Floor Plan</h2>
-    <p class="lede" style="max-width:520px;margin:0 auto 32px">Get in touch for the full room layout,
-    day rates and equipment hire.</p>
-    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+    <p class="lede" style="max-width:520px;margin:0 auto 32px">Explore the complete room layout across
+    all three floors — live room, control room, mezzanine and balcony.</p>
+    <a href="assets/img/floorplan-wadeson-street.jpg" class="btn btn-primary lightbox-trigger">View Floor Plan</a>
   </div>
 </section>
+{LIGHTBOX_HTML}
 """
     write("equipment.html", page("equipment.html", "Equipment", "Full equipment list for The Empire Studio — digital recording, console, pre-amps, microphones, monitoring and more.", body))
 
@@ -320,7 +321,7 @@ def build_testimonials():
 
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('GAL_7')}" alt="EBC live room">
+  <img class="hero-bg" src="{img('Control_Room_009')}" alt="EBC control room">
   <div class="hero-content">
     <div class="hero-tagline">Kind Words</div>
     <h1>Testimonials</h1>
