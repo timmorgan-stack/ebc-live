@@ -45,7 +45,7 @@ def build_home():
         Monitoring: ATC SCM45a. Acoustic design by Roger D'Arcy.</p>
         <a href="equipment.html" class="btn btn-outline btn-sm">Full Gear List</a>
       </div>
-      <img src="{img('Control_Room_001')}" alt="EBC control room">
+      <img src="{img('Control_Room_001')}" alt="Control room mixing desk and studio monitors at The Empire Studio">
     </div>
   </div>
 </section>
@@ -166,7 +166,7 @@ def build_home():
 def build_about():
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('Empire_About_Us_2')}" alt="The Empire Studio">
+  <img class="hero-bg" src="{img('Empire_About_Us_2')}" alt="Vaulted live room ceiling lit in pink at The Empire Studio, East London">
   <div class="hero-content">
     <div class="hero-tagline">About Us</div>
     <h1>The Studio</h1>
@@ -263,7 +263,7 @@ def build_equipment():
 
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('Control_Room_003')}" alt="EBC control room">
+  <img class="hero-bg" src="{img('Control_Room_003')}" alt="Wood-panelled control room with outboard gear at The Empire Studio">
   <div class="hero-content">
     <div class="hero-tagline">The Gear</div>
     <h1>Equipment List</h1>
@@ -300,7 +300,7 @@ def build_equipment():
         <p>Our acoustically treated live room ensures every note resonates with clarity and depth,
         making it ideal for both solo performances and ensemble recordings.</p>
       </div>
-      <img src="{img('Marlon_and_S_S__107_')}" alt="Steinway & Sons grand piano plate">
+      <img src="{img('steinway_and_marlon')}" alt="Steinway & Sons grand piano being played in the live room">
     </div>
   </div>
 </section>
@@ -347,7 +347,7 @@ def build_testimonials():
 
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('Control_Room_009')}" alt="EBC control room">
+  <img class="hero-bg" src="{img('Control_Room_009')}" alt="Control room viewed from the live room at The Empire Studio">
   <div class="hero-content">
     <div class="hero-tagline">Kind Words</div>
     <h1>Testimonials</h1>
@@ -380,10 +380,21 @@ def build_testimonials():
 
 # ============================================================ GALLERY
 GALLERY_IMAGES = [
-    ("GAL_3", "tall"), ("Control_Room_001", ""), ("GAL_7", "wide"), ("33a_Wadeson_Street-11", "tall"),
-    ("Control_Room_003", ""), ("Marlon_and_S_S__107_", ""), ("GAL_4", "wide"), ("Control_Room_009", ""),
-    ("GAL_6", "tall"), ("Marlon_and_S_S__2_", ""), ("Empire_About_Us_2", "wide"), ("GAL_5", "tall"),
-    ("Marlon_and_S_S__24_", ""), ("Marlon_and_S_S__58_", ""), ("Marlon_and_S_S__65_", ""),
+    ("GAL_3", "tall", "Kitchen and lounge area with upright piano and red bar stools at The Empire Studio"),
+    ("Control_Room_001", "", "Control room mixing desk and studio monitors at The Empire Studio, East London"),
+    ("GAL_7", "wide", "Vaulted pine ceiling of the live room lit in pink, converted from a Victorian church"),
+    ("33a_Wadeson_Street-11", "tall", "Full view of the live room with staircase, sofas and lounge seating"),
+    ("Control_Room_003", "", "Wood-panelled control room booth with speakers and outboard gear"),
+    ("Marlon_and_S_S__107_", "", "Close-up of the Steinway & Sons grand piano nameplate"),
+    ("GAL_4", "wide", "Piano bar lounge area with red stools and upright piano"),
+    ("Control_Room_009", "", "Control room viewed through the glass from the live room"),
+    ("GAL_6", "tall", "Kitchen with exposed brick wall and New York skyline artwork"),
+    ("Marlon_and_S_S__2_", "", "Lounge and office space with staircase and vintage decor"),
+    ("Empire_About_Us_2", "wide", "Vaulted live room ceiling bathed in pink stage lighting"),
+    ("GAL_5", "tall", "Vaulted live room with neon sign and staircase to the mezzanine"),
+    ("Marlon_and_S_S__24_", "", "Steinway grand piano interior showing strings and hammers"),
+    ("Marlon_and_S_S__58_", "", "String quartet recording session in the live room"),
+    ("Marlon_and_S_S__65_", "", "Collage of a live recording session: string players, an engineer at the console, and a dancer performing beside the piano"),
 ]
 
 SHAPE_SPANS = {"tall": (1, 2), "wide": (2, 1), "": (1, 1)}
@@ -413,15 +424,15 @@ def pack_tiles(sizes, rows=2):
 
 
 def build_gallery():
-    placements = pack_tiles([size for _, size in GALLERY_IMAGES])
+    placements = pack_tiles([size for _, size, _ in GALLERY_IMAGES])
     imgs = "\n".join(
         f'<a class="lightbox-trigger" style="grid-column:{c+1} / span {cspan}; grid-row:{r+1} / span {rspan};" href="{img(name)}">'
-        f'<img src="{img(name)}" alt="Inside The Empire Studio" loading="lazy"></a>'
-        for (name, size), (c, r, cspan, rspan) in zip(GALLERY_IMAGES, placements)
+        f'<img src="{img(name)}" alt="{alt}" loading="lazy"></a>'
+        for (name, size, alt), (c, r, cspan, rspan) in zip(GALLERY_IMAGES, placements)
     )
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('GAL_5')}" alt="The Empire Studio">
+  <img class="hero-bg" src="{img('GAL_5')}" alt="Vaulted live room with neon sign at The Empire Studio, East London">
   <div class="hero-content">
     <div class="hero-tagline">Inside The Studio</div>
     <h1>Gallery</h1>
@@ -623,7 +634,7 @@ def build_news():
 
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('GAL_4')}" alt="The Empire Studio">
+  <img class="hero-bg" src="{img('GAL_4')}" alt="Piano bar lounge area at The Empire Studio, East London">
   <div class="hero-content">
     <div class="hero-tagline">The Journal</div>
     <h1>News &amp; Stories</h1>
@@ -655,7 +666,7 @@ def build_contact():
   <img class="hero-bg" src="{img('vlcsnap-2024-08-12-02h10m44s927')}" alt="EBC mixing desk">
   <div class="hero-content">
     <div class="hero-tagline">Get In Touch</div>
-    <h1>Let's Make Art</h1>
+    <h1>Let's Make Music</h1>
   </div>
 </section>
 
@@ -778,7 +789,7 @@ def build_contact():
 def build_events():
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('33a_Wadeson_Street-11')}" alt="The Empire Studio">
+  <img class="hero-bg" src="{img('33a_Wadeson_Street-11')}" alt="Live room with staircase and lounge seating at The Empire Studio">
   <div class="hero-content">
     <div class="hero-tagline">What's On</div>
     <h1>Events</h1>
