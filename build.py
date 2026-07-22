@@ -22,7 +22,7 @@ def img(basename):
 NAV_ITEMS = [
     ("about-us.html", "Studio"),
     ("equipment.html", "Equipment"),
-    ("index.html#services", "Services"),
+    ("services.html", "Services"),
     ("gallery.html", "Gallery"),
     ("testimonials.html", "Testimonials"),
     ("contact.html", "Contact"),
@@ -64,6 +64,7 @@ FOOTER = f"""
       <div class="footer-col">
         <h4>Explore</h4>
         <a href="about-us.html">About</a>
+        <a href="services.html">Services</a>
         <a href="equipment.html">Studio &amp; Gear</a>
         <a href="gallery.html">Gallery</a>
       </div>

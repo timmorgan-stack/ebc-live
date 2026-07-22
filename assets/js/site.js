@@ -90,24 +90,8 @@
     });
   }
 
-  function initServicesNavState() {
-    var links = document.querySelectorAll('.nav-links a[href$="#services"]');
-    if (!links.length) return;
-
-    function update() {
-      var isServices = window.location.hash === '#services';
-      links.forEach(function (a) {
-        a.classList.toggle('active', isServices);
-      });
-    }
-
-    update();
-    window.addEventListener('hashchange', update);
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
     initCarousels();
     initLightbox();
-    initServicesNavState();
   });
 })();

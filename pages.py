@@ -70,7 +70,63 @@ def build_home():
   </div>
 </section>
 
-<section id="services">
+<section class="bg-alt tight">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow">Recorded Here</div>
+    </div>
+  </div>
+  {marquee(["Taylor Swift", "Michael Bublé", "Sony Music", "Warner Music", "London Symphony Orchestra", "Arctic Monkeys", "Noah And The Whale", "PJ Harvey", "BBC (Dr Who)", "John Lunn"])}
+</section>
+
+<section>
+  <div class="container">
+    <div class="quote">
+      <span class="quote-mark">&ldquo;</span>
+      <p class="lede">Empire features a fantastic live room where I have had the luck to record the
+      best Strings Players in London. The acoustic is ideal for recording strings for films and
+      chamber music: the sound is warm and flattering!</p>
+      <div class="quote-attr"><strong>Maurizio Malagnini</strong> — Composer, Call The Midwife</div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="testimonials.html" class="btn btn-outline btn-sm">Read More Testimonials</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Book a Visit</h2>
+    <p class="lede" style="max-width:560px;margin:0 auto 32px">153 Sq M of East London's finest live
+    room is waiting. Tell us what you're recording.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+  </div>
+</section>
+"""
+    write("index.html", page(
+        "index.html", "Recording Studio East London",
+        "Recording studio in East London with a 153 sqm live room, professional equipment and "
+        "control room built for orchestras, bands, podcasts and music-to-picture. Book The Empire "
+        "Studio today.",
+        body,
+        keywords="recording studio east london, live room london, control room, professional "
+                 "equipment, music studio east london, recording studio london",
+        og_image=img('GAL_7'),
+    ))
+
+
+# ============================================================ SERVICES
+def build_services():
+    body = f"""
+<section class="hero hero-small">
+  <img class="hero-bg" src="{img('Screengrab_of_Ochestra')}" alt="Overhead view of a string ensemble recording session at The Empire Studio">
+  <div class="hero-content">
+    <div class="hero-tagline">What We Offer</div>
+    <h1>Our Services</h1>
+  </div>
+</section>
+
+<section class="tight">
   <div class="container">
     <div class="section-head center">
       <div class="eyebrow">Our Services</div>
@@ -129,48 +185,25 @@ def build_home():
   </div>
 </section>
 
-<section class="bg-alt tight">
-  <div class="container">
-    <div class="section-head center">
-      <div class="eyebrow">Recorded Here</div>
-    </div>
-  </div>
-  {marquee(["Taylor Swift", "Michael Bublé", "Sony Music", "Warner Music", "London Symphony Orchestra", "Arctic Monkeys", "Noah And The Whale", "PJ Harvey", "BBC (Dr Who)", "John Lunn"])}
-</section>
-
-<section>
-  <div class="container">
-    <div class="quote">
-      <span class="quote-mark">&ldquo;</span>
-      <p class="lede">Empire features a fantastic live room where I have had the luck to record the
-      best Strings Players in London. The acoustic is ideal for recording strings for films and
-      chamber music: the sound is warm and flattering!</p>
-      <div class="quote-attr"><strong>Maurizio Malagnini</strong> — Composer, Call The Midwife</div>
-    </div>
-    <div style="text-align:center;margin-top:32px">
-      <a href="testimonials.html" class="btn btn-outline btn-sm">Read More Testimonials</a>
-    </div>
-  </div>
-</section>
-
 <section class="cta-band">
   <div class="container">
-    <h2>Book a Visit</h2>
-    <p class="lede" style="max-width:560px;margin:0 auto 32px">153 Sq M of East London's finest live
-    room is waiting. Tell us what you're recording.</p>
+    <h2>Ready To Book?</h2>
+    <p class="lede" style="max-width:560px;margin:0 auto 32px">Tell us what you're recording, filming
+    or hosting, and we'll get back to you with availability and rates.</p>
     <a href="contact.html" class="btn btn-primary">Contact Us</a>
   </div>
 </section>
 """
-    write("index.html", page(
-        "index.html", "Recording Studio East London",
-        "Recording studio in East London with a 153 sqm live room, professional equipment and "
-        "control room built for orchestras, bands, podcasts and music-to-picture. Book The Empire "
-        "Studio today.",
+    write("services.html", page(
+        "services.html", "Services",
+        "Music production services at The Empire Studio — scoring, orchestral and choir sessions, "
+        "piano recording, podcasts, remote streaming, band sessions, private events and film "
+        "location hire in East London.",
         body,
-        keywords="recording studio east london, live room london, control room, professional "
-                 "equipment, music studio east london, recording studio london",
-        og_image=img('GAL_7'),
+        keywords="recording studio services, music production services east london, orchestral "
+                 "recording, podcast studio, film location hire, event hire east london, "
+                 "professional equipment",
+        og_image=img('Screengrab_of_Ochestra'),
     ))
 
 
@@ -226,6 +259,7 @@ def build_about():
         <div class="hero-actions" style="margin-top:28px">
           <a href="gallery.html" class="btn btn-outline btn-sm">View Gallery</a>
           <a href="assets/img/floorplan-wadeson-street.jpg" class="btn btn-outline btn-sm lightbox-trigger">View Floor Plan</a>
+          <a href="equipment.html" class="btn btn-outline btn-sm">View Equipment</a>
         </div>
       </div>
       <img src="{img('Empire_About_Us_2')}" alt="EBC live room vaulted ceiling">
@@ -858,6 +892,7 @@ def build_events():
 SITEMAP_PAGES = [
     ("", "1.0", "weekly"),
     ("about-us.html", "0.8", "monthly"),
+    ("services.html", "0.8", "monthly"),
     ("equipment.html", "0.8", "monthly"),
     ("testimonials.html", "0.7", "monthly"),
     ("gallery.html", "0.7", "monthly"),
@@ -900,6 +935,7 @@ Sitemap: {SITE_URL}/sitemap.xml
 
 if __name__ == "__main__":
     build_home()
+    build_services()
     build_about()
     build_equipment()
     build_testimonials()

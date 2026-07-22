@@ -227,9 +227,6 @@ p.lede { color: var(--fg); font-size: 1.2rem; line-height: 1.6; }
   position: relative;
   z-index: 3;
 }
-#services {
-  padding-top: 10px;
-}
 section.tight.equip-intro {
   padding-bottom: 10px;
 }
@@ -263,8 +260,8 @@ section.tight.equip-list {
   content: '';
   position: absolute;
   z-index: -1;
-  inset: -80px -10% -120px -100px;
-  background: radial-gradient(120% 90% at 0% 100%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.38) 35%, rgba(0, 0, 0, 0.12) 60%, rgba(0, 0, 0, 0) 78%);
+  inset: -100px -10% -140px -150px;
+  background: radial-gradient(160% 130% at 0% 100%, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.45) 45%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0) 92%);
   pointer-events: none;
 }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
