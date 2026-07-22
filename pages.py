@@ -208,34 +208,6 @@ def build_about():
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-head center">
-      <div class="eyebrow">Founder</div>
-      <h2>The Art of<br>Marlon Alexander Brown</h2>
-    </div>
-    <div class="split">
-      <div>
-        <p class="lede">Marlon is a contemporary multi-disciplinary artist whose work delves into
-        surrealism, social commentary and existential exploration — inviting viewers to ponder the
-        complexities of modern life, spirituality and human nature.</p>
-        <p>His performative acts blur the lines between art and activism, holding signs with
-        provocative messages like "THE BEGINNING IS NIGH" or "THOU SHALT NOT BANK" that enter public
-        spaces and spark dialogue. Beyond visual and performance art, EBC Studio opens up another
-        dimension of soundscapes that complement visual narratives — a collaborative space for
-        musicians seeking innovative sounds rooted in profound messages about society.</p>
-        <div class="quote" style="margin-top:32px">
-          <span class="quote-mark">&ldquo;</span>
-          <p>This studio is a space to inspire others within the artistic community and beyond
-          towards greater introspection about our ever-evolving society.</p>
-          <div class="quote-attr"><strong>Marlon Alexander Brown</strong></div>
-        </div>
-      </div>
-      <img src="{img('Marlon_and_S_S__2_')}" alt="Inside the EBC building">
-    </div>
-  </div>
-</section>
-
 <section class="cta-band">
   <div class="container">
     <h2>Come See The Room</h2>
