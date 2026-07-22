@@ -615,22 +615,62 @@ def build_contact():
       <form class="contact-form" action="mailto:info@ebc.live" method="post" enctype="text/plain">
         <div class="form-grid">
           <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required>
+            <label for="first_name">First Name</label>
+            <input id="first_name" name="first_name" type="text" required>
           </div>
           <div>
+            <label for="last_name">Last Name</label>
+            <input id="last_name" name="last_name" type="text" required>
+          </div>
+          <div class="full">
             <label for="email">Email</label>
             <input id="email" name="email" type="email" required>
           </div>
           <div class="full">
-            <label for="session">Session Type</label>
-            <select id="session" name="session">
-              <option>Recording / Music to Picture</option>
-              <option>Orchestral / Choir</option>
-              <option>Podcast</option>
-              <option>Live Event</option>
-              <option>Photo / Video Shoot</option>
-              <option>Other Enquiry</option>
+            <label class="checkbox-label">
+              <input type="checkbox" name="newsletter" value="yes">
+              <span>Sign up for news and updates — be the first to hear about our upcoming
+              musical events (with special guests).</span>
+            </label>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="text">
+          </div>
+          <div>
+            <label for="preferred_date">Preferred Date</label>
+            <input id="preferred_date" name="preferred_date" type="date">
+          </div>
+          <div class="full">
+            <label>What services are you interested in?</label>
+            <div class="checkbox-grid">
+              <label class="checkbox-label"><input type="checkbox" name="services" value="Music to Picture"><span>Music to Picture</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="services" value="Orchestra"><span>Orchestra</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="services" value="Band"><span>Band</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="services" value="Piano Session (recording)"><span>Piano Session (recording)</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="services" value="Choir"><span>Choir</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="services" value="Rehearsal (Band / Piano / Orchestra/ Choir)"><span>Rehearsal (Band / Piano / Orchestra/ Choir)</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="services" value="Filming"><span>Filming</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="services" value="Event Hire"><span>Event Hire</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="services" value="Podcast"><span>Podcast</span></label>
+            </div>
+          </div>
+          <div>
+            <label for="budget">What is your budget?</label>
+            <input id="budget" name="budget" type="text" required>
+          </div>
+          <div>
+            <label for="hear_about">How did you hear about us?</label>
+            <select id="hear_about" name="hear_about" required>
+              <option value="">Select an option</option>
+              <option>Word of mouth</option>
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>Google or other search engine</option>
+              <option>Press / News</option>
+              <option>Email</option>
+              <option>Twitter</option>
+              <option>Recorded here before</option>
             </select>
           </div>
           <div class="full">
@@ -638,7 +678,7 @@ def build_contact():
             <textarea id="message" name="message" required></textarea>
           </div>
           <div class="full">
-            <button type="submit" class="btn btn-primary">Send Enquiry</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
       </form>
