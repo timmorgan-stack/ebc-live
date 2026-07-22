@@ -602,7 +602,7 @@ def build_news():
 def build_contact():
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('GAL_7')}" alt="The Empire Studio">
+  <img class="hero-bg" src="{img('vlcsnap-2024-08-12-02h10m44s927')}" alt="EBC mixing desk">
   <div class="hero-content">
     <div class="hero-tagline">Get In Touch</div>
     <h1>Let's Make Art</h1>
