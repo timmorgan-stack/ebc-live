@@ -323,15 +323,15 @@ section.tight { padding: 70px 0; }
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 72px;
-  height: 72px;
+  width: 216px;
+  height: 216px;
   margin: 48px auto 0;
   color: var(--fg-faint);
   animation: scroll-cue-bounce 2.4s ease-in-out infinite;
   transition: color 0.2s ease;
 }
 .scroll-cue:hover { color: var(--accent); }
-.scroll-cue svg { width: 44px; height: 44px; }
+.scroll-cue svg { width: 132px; height: 132px; }
 @keyframes scroll-cue-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
