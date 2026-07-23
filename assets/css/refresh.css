@@ -136,7 +136,7 @@ p.lede { color: var(--fg); font-size: 1.2rem; line-height: 1.6; }
   flex-shrink: 0;
 }
 .nav-logo img {
-  height: 82px;
+  height: 107px;
   width: auto;
   filter: invert(1);
   opacity: 0.95;
@@ -323,15 +323,15 @@ section.tight { padding: 70px 0; }
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 44px;
+  width: 72px;
+  height: 72px;
   margin: 48px auto 0;
   color: var(--fg-faint);
   animation: scroll-cue-bounce 2.4s ease-in-out infinite;
   transition: color 0.2s ease;
 }
 .scroll-cue:hover { color: var(--accent); }
-.scroll-cue svg { width: 22px; height: 22px; }
+.scroll-cue svg { width: 44px; height: 44px; }
 @keyframes scroll-cue-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
@@ -397,10 +397,11 @@ section.tight { padding: 70px 0; }
   transition: opacity .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
-.carousel-arrow:hover { background: var(--accent-bright); border-color: var(--accent-bright); transform: translateY(-50%) scale(1.06); }
 .carousel-arrow.disabled { opacity: 0.25; pointer-events: none; }
-.carousel-arrow.prev { left: 0; }
-.carousel-arrow.next { right: 0; }
+.carousel-arrow.prev { left: 0; transform: translateY(-50%) translateX(-50%); }
+.carousel-arrow.next { right: 0; transform: translateY(-50%) translateX(50%); }
+.carousel-arrow.prev:hover { transform: translateY(-50%) translateX(-50%) scale(1.06); }
+.carousel-arrow.next:hover { transform: translateY(-50%) translateX(50%) scale(1.06); }
 @media (max-width: 700px) {
   .carousel-arrow { width: 48px; height: 48px; font-size: 1.15rem; }
 }
@@ -671,7 +672,7 @@ input[type="checkbox"] {
   flex-wrap: wrap;
   gap: 12px;
 }
-.footer-logo { height: 100px; filter: invert(1); opacity: 0.85; margin-bottom: 20px; }
+.footer-logo { height: 130px; filter: invert(1); opacity: 0.85; margin-bottom: 20px; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
