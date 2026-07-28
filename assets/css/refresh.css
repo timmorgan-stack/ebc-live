@@ -206,6 +206,7 @@ img.is-loaded {
 .hero {
   position: relative;
   min-height: 92vh;
+  min-height: 92dvh;
   display: flex;
   align-items: flex-end;
   background: #000;
@@ -234,6 +235,7 @@ img.is-loaded {
 }
 .hero-small {
   min-height: 32vh;
+  min-height: 32dvh;
 }
 .hero-small + section {
   margin-top: -100px;
@@ -332,25 +334,12 @@ section.tight { padding: 70px 0; }
 .split.reverse { direction: rtl; }
 .split.reverse > * { direction: ltr; }
 
-.scroll-cue {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 216px;
-  height: 216px;
-  margin: 48px auto 0;
-  color: var(--fg-faint);
-  animation: scroll-cue-bounce 2.4s ease-in-out infinite;
-  transition: color 0.2s ease;
-}
-.scroll-cue:hover { color: var(--accent); }
-.scroll-cue svg { width: 132px; height: 132px; }
 @keyframes scroll-cue-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .scroll-cue, .panel-next { animation: none; }
+  .panel-next { animation: none; }
 }
 
 /* ---------- Story panels (About page) ---------- */
@@ -749,15 +738,33 @@ input[type="checkbox"] {
   .event-date-block { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 20px; }
   section { padding: 70px 0; }
   .form-grid { grid-template-columns: 1fr; }
+  .story-col { counter-reset: panel; }
   .story-panel {
+    counter-increment: panel;
+    position: relative;
     min-height: 72vh;
+    min-height: 72dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 0;
     padding: 40px 0;
   }
+  .story-panel::before {
+    content: counter(panel, decimal-leading-zero);
+    position: absolute;
+    top: 8px;
+    right: 0;
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--line-strong);
+    pointer-events: none;
+  }
+  .story-panel > p:not(.lede) { font-size: 1.05rem; line-height: 1.65; }
   .story-panel.image-panel { min-height: auto; padding: 24px 0 40px; }
+  .story-panel.image-panel::before { content: none; }
   .panel-next {
     display: flex;
     justify-content: center;
@@ -766,11 +773,12 @@ input[type="checkbox"] {
     height: 56px;
     margin: 32px auto 0;
     color: var(--fg-faint);
+    font-size: 1.6rem;
+    line-height: 1;
     animation: scroll-cue-bounce 2.4s ease-in-out infinite;
     transition: color .2s ease;
   }
   .panel-next:hover { color: var(--accent); }
-  .panel-next svg { width: 32px; height: 32px; }
 }
 @media (max-width: 560px) {
   .footer-grid { grid-template-columns: 1fr; }
