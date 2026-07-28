@@ -60,33 +60,67 @@
       img.addEventListener('error', onDone);
     }
 
-    var all = [].slice.call(document.querySelectorAll('img'));
-    // Chrome/nav furniture fades in as soon as it's ready — it's already
-    // on screen, so there's nothing to wait to scroll to.
-    var immediate = all.filter(function (img) {
-      return img.classList.contains('hero-bg') ||
-        img.classList.contains('footer-logo') ||
-        img.classList.contains('lightbox-img') ||
-        !!img.closest('.nav-logo');
-    });
-    var content = all.filter(function (img) { return immediate.indexOf(img) === -1; });
+    var observer = null;
 
-    immediate.forEach(revealOnLoad);
+    function run() {
+      var all = [].slice.call(document.querySelectorAll('img'));
+      // Chrome/nav furniture fades in as soon as it's ready — it's already
+      // on screen, so there's nothing to wait to scroll to.
+      var immediate = all.filter(function (img) {
+        return img.classList.contains('hero-bg') ||
+          img.classList.contains('footer-logo') ||
+          img.classList.contains('lightbox-img') ||
+          !!img.closest('.nav-logo');
+      });
+      var content = all.filter(function (img) { return immediate.indexOf(img) === -1; });
 
-    if (!('IntersectionObserver' in window)) {
-      content.forEach(revealOnLoad);
-      return;
+      immediate.forEach(revealOnLoad);
+
+      if (observer) observer.disconnect();
+
+      if (!('IntersectionObserver' in window)) {
+        content.forEach(revealOnLoad);
+        return;
+      }
+
+      observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          revealOnLoad(entry.target);
+          obs.unobserve(entry.target);
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+      content.forEach(function (img) { observer.observe(img); });
     }
 
-    var observer = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        revealOnLoad(entry.target);
-        obs.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    run();
 
-    content.forEach(function (img) { observer.observe(img); });
+    // Safari/Chrome can restore a page from the back/forward cache instead
+    // of reloading it — DOMContentLoaded never fires again, so without this
+    // the fade only ever plays once per tab. Reset and replay it whenever a
+    // page is restored that way.
+    window.addEventListener('pageshow', function (e) {
+      if (!e.persisted) return;
+      var imgs = [].slice.call(document.querySelectorAll('img.is-loaded'));
+      // A restored page's opacity is already settled at its final value with
+      // no transition in flight, so merely toggling the class and waiting a
+      // couple of rAFs isn't enough — the browser can coalesce the remove
+      // and re-add into one paint and never visibly move. Force an explicit,
+      // transition-less snap to 0 and a reflow so that state actually
+      // paints, then hand back to the normal (already-debounced) reveal.
+      imgs.forEach(function (img) {
+        img.classList.remove('is-loaded');
+        img.style.transition = 'none';
+        img.style.opacity = '0';
+      });
+      void document.body.offsetWidth;
+      imgs.forEach(function (img) {
+        img.style.transition = '';
+        img.style.opacity = '';
+      });
+      run();
+    });
   }
 
   function initEquipPanels() {
