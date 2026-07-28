@@ -469,6 +469,7 @@ def build_testimonials():
         keywords="recording studio east london, live room london, control room, testimonials, "
                  "recording studio reviews",
         og_image=img('Control_Room_009'),
+        extra_class="testimonials-page",
     ))
 
 
