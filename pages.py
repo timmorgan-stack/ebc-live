@@ -208,6 +208,14 @@ def build_services():
 
 
 # ============================================================ ABOUT
+def panel_next(target, label="Next"):
+    return f"""<a href="#{target}" class="panel-next" aria-label="{label}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>"""
+
+
 def build_about():
     body = f"""
 <section class="hero hero-small">
@@ -221,58 +229,89 @@ def build_about():
 <section>
   <div class="container">
     <div class="split">
-      <div>
-        <div class="eyebrow">Acoustic Design</div>
-        <h2>By The Legendary<br>Roger D'Arcy</h2>
-        <p class="lede">Every inch of EBC has been acoustically treated by renowned architect Roger
-        D'Arcy, ensuring unparalleled sound quality. Whether you're recording an album, filming a
-        music video or staging a photoshoot, EBC delivers an exceptional experience with its full
-        blackout facility and impeccable acoustics.</p>
-        <p>Roger D'Arcy is an architect and acoustic designer with over 30 years of experience in
-        the planning and architectural-acoustic design of recording studios. He's founder of
-        Recording Architecture (RA), a UK-based firm specialising in studio design, and co-author of
-        "Acoustic Design for the Home Studio" with Hugh Flynn. Beyond his architectural work, D'Arcy
-        is also a singer/songwriter, having released solo albums including "Crooked Tales" (2016),
-        "House of Heads" (2017) and "The Road To Stameen" (2019).</p>
-        <p>D'Arcy has designed studios in over 40 countries. Notable projects include Lansdowne
-        Studios, CTS Studios, installations for Abbey Road, studios for EMI Music, Crystalphonic and
-        Optimum Mastering.</p>
+      <div class="story-col">
+
+        <div class="story-panel" id="darcy-intro">
+          <div class="eyebrow">Acoustic Design</div>
+          <h2>By The Legendary<br>Roger D'Arcy</h2>
+          <p class="lede">Every inch of EBC has been acoustically treated by renowned architect
+          <strong>Roger D'Arcy</strong>, ensuring unparalleled sound quality. Whether you're recording
+          an album, filming a music video or staging a photoshoot, EBC delivers an exceptional
+          experience with its full blackout facility and impeccable acoustics.</p>
+          {panel_next('darcy-bio')}
+        </div>
+
+        <div class="story-panel" id="darcy-bio">
+          <p>Roger D'Arcy is an architect and acoustic designer with <strong>over 30 years</strong> of
+          experience in the planning and architectural-acoustic design of recording studios. He's
+          founder of <strong>Recording Architecture (RA)</strong>, a UK-based firm specialising in
+          studio design, and co-author of <em>&ldquo;Acoustic Design for the Home Studio&rdquo;</em>
+          with Hugh Flynn.</p>
+          <p>Beyond his architectural work, D'Arcy is also a singer/songwriter, having released solo
+          albums including <strong>&ldquo;Crooked Tales&rdquo;</strong> (2016),
+          <strong>&ldquo;House of Heads&rdquo;</strong> (2017) and
+          <strong>&ldquo;The Road To Stameen&rdquo;</strong> (2019).</p>
+          {panel_next('darcy-legacy')}
+        </div>
+
+        <div class="story-panel" id="darcy-legacy">
+          <blockquote class="pull-quote">
+            <span class="pull-quote-mark">&ldquo;</span>
+            <p>D'Arcy has designed studios in over 40 countries.</p>
+          </blockquote>
+          <p>Notable projects include <strong>Lansdowne Studios</strong>, <strong>CTS Studios</strong>,
+          installations for <strong>Abbey Road</strong>, studios for <strong>EMI Music</strong>,
+          Crystalphonic and Optimum Mastering.</p>
+          {panel_next('darcy-image')}
+        </div>
+
       </div>
-      <img src="{img('33a_Wadeson_Street-11')}" alt="EBC live room, acoustically designed by Roger D'Arcy">
+      <div class="story-panel image-panel" id="darcy-image">
+        <img src="{img('33a_Wadeson_Street-11')}" alt="EBC live room, acoustically designed by Roger D'Arcy">
+        {panel_next('historic-church', 'Scroll to next section')}
+      </div>
     </div>
-    <a href="#historic-church" class="scroll-cue" aria-label="Scroll to next section">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
   </div>
 </section>
 
 <section class="bg-alt" id="historic-church">
   <div class="container">
     <div class="split reverse">
-      <div>
-        <div class="eyebrow">East London's Premier Recording Studio</div>
-        <h2>A Historic Church,<br>Reimagined</h2>
-        <p class="lede">EBC Studio positions itself as a premier destination for high-quality music
-        production, offering a unique combination of cutting-edge technology and artistic ambiance —
-        created by Empire Broadcasting Corporation with acoustic design by Roger D'Arcy.</p>
-        <p>Originally a historic Methodist church, the building has been transformed into a
-        state-of-the-art, 1,500 sq ft soundproof live room, featuring a dramatic 30-foot-high pine
-        vaulted ceiling and a unique surrounding balcony — designed to cater to everything from large
-        orchestral recordings to intimate solo sessions.</p>
-        <div class="hero-actions" style="margin-top:28px">
-          <a href="gallery.html" class="btn btn-outline btn-sm">View Gallery</a>
-          <a href="assets/img/floorplan-wadeson-street.jpg" class="btn btn-outline btn-sm lightbox-trigger">View Floor Plan</a>
-          <a href="equipment.html" class="btn btn-outline btn-sm">View Equipment</a>
+      <div class="story-col">
+
+        <div class="story-panel" id="church-intro">
+          <div class="eyebrow">East London's Premier Recording Studio</div>
+          <h2>A Historic Church,<br>Reimagined</h2>
+          <p class="lede">EBC Studio positions itself as a premier destination for high-quality music
+          production, offering a unique combination of cutting-edge technology and artistic ambiance —
+          created by Empire Broadcasting Corporation with acoustic design by Roger D'Arcy.</p>
+          {panel_next('church-details')}
         </div>
+
+        <div class="story-panel" id="church-details">
+          <p>Originally a historic <strong>Methodist church</strong>, the building has been
+          transformed into a state-of-the-art, <strong>1,500&nbsp;sq&nbsp;ft</strong> soundproof live
+          room, featuring a dramatic <strong>30-foot-high</strong> pine vaulted ceiling and a unique
+          surrounding balcony — designed to cater to everything from large orchestral recordings to
+          intimate solo sessions.</p>
+          <div class="hero-actions" style="margin-top:28px">
+            <a href="gallery.html" class="btn btn-outline btn-sm">View Gallery</a>
+            <a href="assets/img/floorplan-wadeson-street.jpg" class="btn btn-outline btn-sm lightbox-trigger">View Floor Plan</a>
+            <a href="equipment.html" class="btn btn-outline btn-sm">View Equipment</a>
+          </div>
+          {panel_next('church-image')}
+        </div>
+
       </div>
-      <img src="{img('Empire_About_Us_2')}" alt="EBC live room vaulted ceiling">
+      <div class="story-panel image-panel" id="church-image">
+        <img src="{img('Empire_About_Us_2')}" alt="EBC live room vaulted ceiling">
+        {panel_next('cta-band', 'Scroll to booking')}
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta-band">
+<section class="cta-band" id="cta-band">
   <div class="container">
     <h2>Come See The Room</h2>
     <a href="contact.html" class="btn btn-primary">Book Now</a>
