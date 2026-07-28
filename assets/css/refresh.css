@@ -418,10 +418,10 @@ section.tight { padding: 70px 0; }
 .carousel-arrow.prev:hover { transform: translateY(-50%) translateX(calc(-50% - 5px)) scale(1.06); }
 .carousel-arrow.next:hover { transform: translateY(-50%) translateX(calc(50% + 5px)) scale(1.06); }
 .testimonials-page .carousel-arrow.prev {
-  transform: translateY(-50%) translateX(calc(-50% - 16px));
+  transform: translateY(-50%) translateX(calc(-50% - 19px));
 }
 .testimonials-page .carousel-arrow.prev:hover {
-  transform: translateY(-50%) translateX(calc(-50% - 16px)) scale(1.06);
+  transform: translateY(-50%) translateX(calc(-50% - 19px)) scale(1.06);
 }
 @media (max-width: 700px) {
   .carousel-arrow { width: 48px; height: 48px; font-size: 1.15rem; }
@@ -429,7 +429,7 @@ section.tight { padding: 70px 0; }
   .carousel-arrow.next, .carousel-arrow.next:hover { right: -1px; transform: translateY(-50%); }
   .testimonials-page .carousel-arrow.prev,
   .testimonials-page .carousel-arrow.prev:hover {
-    left: -12px;
+    left: -15px;
     transform: translateY(-50%);
   }
 }
