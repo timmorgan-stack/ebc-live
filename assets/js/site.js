@@ -34,13 +34,25 @@
   }
 
   function initImageFade() {
+    function reveal(img) {
+      // Force a paint with opacity still 0 before flipping the class, so
+      // the transition always has a "from" state to animate — otherwise a
+      // cached image (already .complete before the first paint) jumps
+      // straight to opacity 1 with no visible fade.
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          img.classList.add('is-loaded');
+        });
+      });
+    }
+
     function revealOnLoad(img) {
       if (img.complete && img.naturalWidth) {
-        img.classList.add('is-loaded');
+        reveal(img);
         return;
       }
       function onDone() {
-        img.classList.add('is-loaded');
+        reveal(img);
         img.removeEventListener('load', onDone);
         img.removeEventListener('error', onDone);
       }
