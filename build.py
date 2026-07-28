@@ -93,7 +93,8 @@ FOOTER = f"""
 def page(active, title, description, body, keywords="", og_image=None, extra_class=""):
     canonical = f"{SITE_URL}/" if active == "index.html" else f"{SITE_URL}/{active}"
     full_title = f"{title} — The Empire Studio"
-    og_img_url = f"{SITE_URL}/{og_image or img('GAL_7')}"
+    hero_img = og_image or img('GAL_7')
+    og_img_url = f"{SITE_URL}/{hero_img}"
 
     ld_json = json.dumps({
         "@context": "https://schema.org",
@@ -126,7 +127,9 @@ def page(active, title, description, body, keywords="", og_image=None, extra_cla
 <meta name="author" content="The Empire Broadcasting Corporation">
 <link rel="canonical" href="{canonical}">
 <link rel="icon" href="{img('Empire_Logo_1')}">
+<link rel="preload" as="image" href="{hero_img}" fetchpriority="high">
 <link rel="stylesheet" href="assets/css/refresh.css">
+<noscript><style>img{{opacity:1 !important}}</style></noscript>
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Empire Studio">

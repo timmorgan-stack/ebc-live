@@ -33,6 +33,22 @@
     });
   }
 
+  function initImageFade() {
+    document.querySelectorAll('img').forEach(function (img) {
+      if (img.complete && img.naturalWidth) {
+        img.classList.add('is-loaded');
+        return;
+      }
+      function onDone() {
+        img.classList.add('is-loaded');
+        img.removeEventListener('load', onDone);
+        img.removeEventListener('error', onDone);
+      }
+      img.addEventListener('load', onDone);
+      img.addEventListener('error', onDone);
+    });
+  }
+
   function initLightbox() {
     var items = [].slice.call(document.querySelectorAll('.lightbox-trigger'));
     if (!items.length) return;
@@ -91,6 +107,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    initImageFade();
     initCarousels();
     initLightbox();
   });

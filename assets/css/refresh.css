@@ -105,6 +105,20 @@ p.lede { color: var(--fg); font-size: 1.2rem; line-height: 1.6; }
   background: var(--accent);
 }
 
+/* ---------- Image fade-in ---------- */
+img {
+  transition: opacity .3s ease;
+}
+img:not(.is-loaded) {
+  opacity: 0;
+}
+img.is-loaded {
+  opacity: 1;
+}
+.hero-bg.is-loaded {
+  opacity: 0.92;
+}
+
 /* ---------- Nav ---------- */
 .site-header {
   position: sticky;
@@ -203,7 +217,6 @@ p.lede { color: var(--fg); font-size: 1.2rem; line-height: 1.6; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.92;
 }
 .hero::after {
   content: '';

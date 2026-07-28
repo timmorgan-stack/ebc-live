@@ -4,7 +4,7 @@ from build import img, page, marquee, write, carousel, LIGHTBOX_HTML
 def build_home():
     body = f"""
 <section class="hero">
-  <img class="hero-bg" src="{img('GAL_7')}" alt="The Empire Studio live room">
+  <img class="hero-bg" fetchpriority="high" src="{img('GAL_7')}" alt="The Empire Studio live room">
   <div class="hero-content">
     <div class="hero-tagline">East London Recording Studio</div>
     <h1>The Sound<br>of Perfection</h1>
@@ -119,7 +119,7 @@ def build_home():
 def build_services():
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('Screengrab_of_Ochestra')}" alt="Overhead view of a string ensemble recording session at The Empire Studio">
+  <img class="hero-bg" fetchpriority="high" src="{img('Screengrab_of_Ochestra')}" alt="Overhead view of a string ensemble recording session at The Empire Studio">
   <div class="hero-content">
     <div class="hero-tagline">What We Offer</div>
     <h1>Our Services</h1>
@@ -211,7 +211,7 @@ def build_services():
 def build_about():
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('Empire_About_Us_2')}" alt="Vaulted live room ceiling lit in pink at The Empire Studio, East London">
+  <img class="hero-bg" fetchpriority="high" src="{img('Empire_About_Us_2')}" alt="Vaulted live room ceiling lit in pink at The Empire Studio, East London">
   <div class="hero-content">
     <div class="hero-tagline">About Us</div>
     <h1>The Studio</h1>
@@ -319,7 +319,7 @@ def build_equipment():
 
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('Control_Room_003')}" alt="Wood-panelled control room with outboard gear at The Empire Studio">
+  <img class="hero-bg" fetchpriority="high" src="{img('Control_Room_003')}" alt="Wood-panelled control room with outboard gear at The Empire Studio">
   <div class="hero-content">
     <div class="hero-tagline">The Gear</div>
     <h1>Equipment List</h1>
@@ -403,7 +403,7 @@ def build_testimonials():
 
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('Control_Room_009')}" alt="Control room viewed from the live room at The Empire Studio">
+  <img class="hero-bg" fetchpriority="high" src="{img('Control_Room_009')}" alt="Control room viewed from the live room at The Empire Studio">
   <div class="hero-content">
     <div class="hero-tagline">Kind Words</div>
     <h1>Testimonials</h1>
@@ -488,7 +488,7 @@ def build_gallery():
     )
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('GAL_5')}" alt="Vaulted live room with neon sign at The Empire Studio, East London">
+  <img class="hero-bg" fetchpriority="high" src="{img('GAL_5')}" alt="Vaulted live room with neon sign at The Empire Studio, East London">
   <div class="hero-content">
     <div class="hero-tagline">Inside The Studio</div>
     <h1>Gallery</h1>
@@ -690,7 +690,7 @@ def build_news():
 
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('GAL_4')}" alt="Piano bar lounge area at The Empire Studio, East London">
+  <img class="hero-bg" fetchpriority="high" src="{img('GAL_4')}" alt="Piano bar lounge area at The Empire Studio, East London">
   <div class="hero-content">
     <div class="hero-tagline">The Journal</div>
     <h1>News &amp; Stories</h1>
@@ -719,7 +719,7 @@ def build_news():
 def build_contact():
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('vlcsnap-2024-08-12-02h10m44s927')}" alt="EBC mixing desk">
+  <img class="hero-bg" fetchpriority="high" src="{img('vlcsnap-2024-08-12-02h10m44s927')}" alt="EBC mixing desk">
   <div class="hero-content">
     <div class="hero-tagline">Get In Touch</div>
     <h1>Let's Make Music</h1>
@@ -841,7 +841,7 @@ def build_contact():
 def build_events():
     body = f"""
 <section class="hero hero-small">
-  <img class="hero-bg" src="{img('33a_Wadeson_Street-11')}" alt="Live room with staircase and lounge seating at The Empire Studio">
+  <img class="hero-bg" fetchpriority="high" src="{img('33a_Wadeson_Street-11')}" alt="Live room with staircase and lounge seating at The Empire Studio">
   <div class="hero-content">
     <div class="hero-tagline">What's On</div>
     <h1>Events</h1>
