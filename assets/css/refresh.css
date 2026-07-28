@@ -404,6 +404,8 @@ section.tight { padding: 70px 0; }
 .carousel-arrow.next:hover { transform: translateY(-50%) translateX(50%) scale(1.06); }
 @media (max-width: 700px) {
   .carousel-arrow { width: 48px; height: 48px; font-size: 1.15rem; }
+  .carousel-arrow.prev, .carousel-arrow.prev:hover { left: 4px; transform: translateY(-50%); }
+  .carousel-arrow.next, .carousel-arrow.next:hover { right: 4px; transform: translateY(-50%); }
 }
 
 /* ---------- Lightbox ---------- */
