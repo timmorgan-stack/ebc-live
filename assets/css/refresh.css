@@ -677,6 +677,7 @@ input[type="checkbox"] {
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .nav-toggle { display: flex; }
+  .nav-logo img { height: 48px; }
   .nav-links {
     position: absolute;
     top: 100%;
