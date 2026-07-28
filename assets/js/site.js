@@ -34,7 +34,7 @@
   }
 
   function initImageFade() {
-    document.querySelectorAll('img').forEach(function (img) {
+    function revealOnLoad(img) {
       if (img.complete && img.naturalWidth) {
         img.classList.add('is-loaded');
         return;
@@ -46,6 +46,95 @@
       }
       img.addEventListener('load', onDone);
       img.addEventListener('error', onDone);
+    }
+
+    var all = [].slice.call(document.querySelectorAll('img'));
+    // Chrome/nav furniture fades in as soon as it's ready — it's already
+    // on screen, so there's nothing to wait to scroll to.
+    var immediate = all.filter(function (img) {
+      return img.classList.contains('hero-bg') ||
+        img.classList.contains('footer-logo') ||
+        img.classList.contains('lightbox-img') ||
+        !!img.closest('.nav-logo');
+    });
+    var content = all.filter(function (img) { return immediate.indexOf(img) === -1; });
+
+    immediate.forEach(revealOnLoad);
+
+    if (!('IntersectionObserver' in window)) {
+      content.forEach(revealOnLoad);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        revealOnLoad(entry.target);
+        obs.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    content.forEach(function (img) { observer.observe(img); });
+  }
+
+  function initEquipPanels() {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('.equip-cat').forEach(function (details) {
+      var summary = details.querySelector(':scope > summary');
+      var content = details.querySelector(':scope > ul');
+      if (!summary || !content || reduceMotion || !details.animate) return;
+
+      var animation = null;
+      var closing = false;
+      var expanding = false;
+
+      function onFinish(open) {
+        details.open = open;
+        animation = null;
+        closing = false;
+        expanding = false;
+        details.style.height = '';
+        details.style.overflow = '';
+      }
+
+      function expand() {
+        details.style.overflow = 'hidden';
+        expanding = true;
+        var startHeight = details.offsetHeight + 'px';
+        details.open = true;
+        var endHeight = (summary.offsetHeight + content.offsetHeight) + 'px';
+        if (animation) animation.cancel();
+        animation = details.animate(
+          { height: [startHeight, endHeight] },
+          { duration: 220, easing: 'ease' }
+        );
+        animation.onfinish = function () { onFinish(true); };
+        animation.oncancel = function () { expanding = false; };
+      }
+
+      function collapse() {
+        details.style.overflow = 'hidden';
+        closing = true;
+        var startHeight = details.offsetHeight + 'px';
+        var endHeight = summary.offsetHeight + 'px';
+        if (animation) animation.cancel();
+        animation = details.animate(
+          { height: [startHeight, endHeight] },
+          { duration: 180, easing: 'ease' }
+        );
+        animation.onfinish = function () { onFinish(false); };
+        animation.oncancel = function () { closing = false; };
+      }
+
+      summary.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (closing || !details.open) {
+          expand();
+        } else if (expanding || details.open) {
+          collapse();
+        }
+      });
     });
   }
 
@@ -109,6 +198,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initImageFade();
     initCarousels();
+    initEquipPanels();
     initLightbox();
   });
 })();
