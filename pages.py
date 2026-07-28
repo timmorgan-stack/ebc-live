@@ -209,11 +209,7 @@ def build_services():
 
 # ============================================================ ABOUT
 def panel_next(target, label="Next"):
-    return f"""<a href="#{target}" class="panel-next" aria-label="{label}">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>"""
+    return f'<a href="#{target}" class="panel-next" aria-label="{label}">&#8595;</a>'
 
 
 def build_about():
@@ -242,6 +238,7 @@ def build_about():
         </div>
 
         <div class="story-panel" id="darcy-bio">
+          <div class="eyebrow">The Architect</div>
           <p>Roger D'Arcy is an architect and acoustic designer with <strong>over 30 years</strong> of
           experience in the planning and architectural-acoustic design of recording studios. He's
           founder of <strong>Recording Architecture (RA)</strong>, a UK-based firm specialising in
@@ -255,6 +252,7 @@ def build_about():
         </div>
 
         <div class="story-panel" id="darcy-legacy">
+          <div class="eyebrow">Global Reach</div>
           <blockquote class="pull-quote">
             <span class="pull-quote-mark">&ldquo;</span>
             <p>D'Arcy has designed studios in over 40 countries.</p>
@@ -289,6 +287,7 @@ def build_about():
         </div>
 
         <div class="story-panel" id="church-details">
+          <div class="eyebrow">Inside The Room</div>
           <p>Originally a historic <strong>Methodist church</strong>, the building has been
           transformed into a state-of-the-art, <strong>1,500&nbsp;sq&nbsp;ft</strong> soundproof live
           room, featuring a dramatic <strong>30-foot-high</strong> pine vaulted ceiling and a unique

@@ -162,7 +162,9 @@ LIGHTBOX_HTML = """
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" aria-label="Close">&times;</button>
   <button class="lightbox-prev" aria-label="Previous image">&#8592;</button>
-  <img class="lightbox-img" src="" alt="">
+  <div class="lightbox-stage">
+    <img class="lightbox-img" id="lightbox-img-main" src="" alt="">
+  </div>
   <button class="lightbox-next" aria-label="Next image">&#8594;</button>
 </div>
 """
